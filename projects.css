@@ -1,0 +1,568 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+body {
+    font-family: 'Kadwa', serif;
+    background: #000000; /* Desired background color */
+    color: white; /* Text color */
+    margin: 0;
+    padding: 0;
+    cursor: none; /* Hide the default cursor */
+}
+
+/* Navbar Wrapper */
+.navbar {
+    position: fixed;
+    font-family: 'Kadwa', serif;
+    top: 1rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo-link {
+    margin-right: auto; /* Pushes the logo to the left */
+}
+
+.logo-image {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+}
+
+/* Centered Navigation Links Container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 50px; /* Rounded container */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: absolute; /* Positions nav-links independently */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Centers exactly in the middle */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Rounded link background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-link:hover,
+.nav-link.active {
+    background-color: #FF0000 ; /* Highlight color */
+    color: #ffffff; /* Text color on hover */
+    box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow on hover */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .logo-image {
+        width: 3rem; /* Reduce logo size in mobile */
+        height: 3rem;
+    }
+
+    .nav-links {
+        gap: 1rem; /* Reduce space between nav links */
+        padding: 0.3rem 1rem; /* Reduce padding of nav-links */
+    }
+
+    .nav-link {
+        font-size: 0.875rem; /* Smaller font size for links */
+        padding: 0.3rem 0.8rem; /* Reduce padding for each link */
+    }
+}
+
+/* Cursor Styles */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+    transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #FF6347;
+}
+
+
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+    transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #FF6347;
+}
+
+
+
+
+/* Import Kadwa font */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kadwa', serif;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.header-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensure the header section takes at least the full height of the viewport */
+  padding: 0 20px; /* Added some padding to prevent text from touching edges on mobile */
+  flex-direction: column; /* Ensure vertical centering */
+  text-align: center; /* Center the text */
+  padding-top: 10%; /* Adjust this percentage to fine-tune vertical centering */
+  box-sizing: border-box; /* Include padding in the height calculation */
+  transition: padding-top 0.3s ease-out; /* Smooth transition for padding adjustment */
+}
+
+.welcome-text {
+  font-size: 9rem; /* Extremely large text for desktop */
+  color: white;
+  line-height: 1.1; /* Reduced line spacing */
+  max-width: 90%; /* Prevent text from stretching too wide on large screens */
+  display: inline-block;
+}
+
+.animation-img {
+  width: 150px; /* Set a size for the image */
+  height: 120px;
+  margin: 0 10px; /* Add space between text and image */
+  opacity: 0; /* Start invisible */
+  transform: scale(0.5); /* Start small */
+  transition: opacity 0.5s ease, transform 0.5s ease, filter 0.3s ease; /* Smooth transition for opacity, size, and hover effects */
+}
+
+/* Hover animation */
+.animation-img:hover {
+  transform: scale(1.1) rotate(10deg); /* Slightly larger and rotated for hover effect */
+  filter: brightness(1.2); /* Make the image slightly brighter when hovered */
+}
+
+/* Floating animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0); /* Start at original position */
+  }
+  50% {
+    transform: translateY(-10px); /* Move up */
+  }
+  100% {
+    transform: translateY(0); /* Return to original position */
+  }
+}
+
+/* Bouncing animation */
+@keyframes bouncing {
+  0% {
+    transform: translateY(0); /* Start at original position */
+  }
+  25% {
+    transform: translateY(-10px); /* Move up */
+  }
+  50% {
+    transform: translateY(0); /* Return to original position */
+  }
+  75% {
+    transform: translateY(-5px); /* Small bounce */
+  }
+  100% {
+    transform: translateY(0); /* Return to original position */
+  }
+}
+
+/* Floating effect on images */
+.welcome-text .animation-img:nth-child(odd) {
+  animation: floating 2s ease-in-out infinite;
+}
+
+.welcome-text .animation-img:nth-child(even) {
+  animation: bouncing 2s ease-in-out infinite;
+}
+
+/* Animations for images on page load */
+@keyframes image-animation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2); /* Slightly larger for effect */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply animation on page load */
+.welcome-text .animation-img:nth-child(odd) {
+  animation: image-animation 1s ease-out forwards;
+}
+
+.welcome-text .animation-img:nth-child(even) {
+  animation: image-animation 1s 0.2s ease-out forwards; /* Add a delay for even images */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .header-section {
+    padding-top: 20%; /* Adjust padding for mobile screens */
+  }
+
+  .welcome-text {
+    font-size: 5rem; /* Smaller font size for mobile */
+    max-width: 100%; /* Allow text to expand more on smaller screens */
+  }
+
+  .animation-img {
+    width: 100px; /* Smaller image size on mobile */
+    height: 80px; /* Adjust height for mobile */
+  }
+
+  /* Adjust margin for images to prevent them from overlapping */
+  .animation-img {
+    margin: 10px 5px; /* Reduce space between images */
+  }
+}
+
+/* Extra Small Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .header-section {
+    padding-top: 15%; /* Further adjust padding for very small screens */
+  }
+
+  .welcome-text {
+    font-size: 3rem; /* Even smaller font size for very small screens */
+    max-width: 100%; /* Allow text to occupy more width */
+  }
+
+  .animation-img {
+    width: 80px; /* Even smaller image size */
+    height: 60px; /* Adjust height for very small screens */
+  }
+
+  /* Reduce space between images for very small screens */
+  .animation-img {
+    margin: 5px 3px; /* Tighter spacing for very small screens */
+  }
+}
+
+
+  body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kadwa', serif;
+      background-color: #000000;
+      color: #ffffff;
+    }
+    .projects-section {
+      width: 90%;
+      margin: 0 auto;
+      padding: 60px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+    .projects-title {
+      font-size: 8rem;
+      font-weight: 700;
+      margin-bottom: 60px;
+    }
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+    }
+    .project-item {
+      font-size: 2.5rem;
+      padding: 40px 0;
+      border-bottom: 1px solid #333;
+      position: relative;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .project-item:hover {
+      color: #ff0000;
+    }
+    .project-subtitle {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      color: #999;
+    }
+    /* Hover image styling */
+    .project-item:hover .hover-image {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Hover image styling */
+    .project-item:hover .hover-image {
+      opacity: 1;
+      transform: translateY(0); /* Ensures smooth upward movement */
+    }
+
+    .hover-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(20px) scale(0.9); /* Initial position is slightly below */
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth opacity and movement transition */
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    /* Explore button styling */
+    .explore-button {
+      font-size: 1rem;
+      padding: 10px 20px;
+      color: #ff0000;
+      border: 2px solid #ff0000;
+      background: transparent;
+      border-radius: 20px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: color 0.4s ease;
+    }
+    .explore-button:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: #ff0000;
+      z-index: -1;
+      transition: width 0.4s ease;
+    }
+    .explore-button:hover:before {
+      width: 100%;
+    }
+    .explore-button:hover {
+      color: #ffffff;
+    }
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .projects-title {
+        font-size: 5rem;
+      }
+      .project-item {
+        font-size: 2rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hover-image {
+        width: 90%;
+        max-width: 250px;
+        height: 150px;
+      }
+    }
+
+
+footer {
+  width: 100%;
+  padding: 40px 0;
+  color: white;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem; /* Add padding for alignment */
+  gap: 2rem; /* Add spacing between sections */
+}
+
+.footer-left, .footer-middle, .footer-center, .footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-middle {
+  gap: 10px;
+}
+
+.footer-line {
+  width: 95%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto 20px;
+}
+
+.footer-left a, .footer-middle a, .footer-center p, .footer-right p {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
+.footer-left a:hover, .footer-middle a:hover, .footer-center p:hover {
+  color: #FF0000;
+}
+
+.subscribe-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  padding: 10px;
+  font-size: 1.4rem;
+  width: 180px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.subscribe-box input::placeholder {
+  color: #ccc;
+}
+
+.subscribe-box button {
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.subscribe-box button:hover {
+  background-color: #ffffff;
+    color: black;
+}
+
+.footer-right img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-right p {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-left, .footer-middle, .footer-center, .footer-right {
+    width: 100%;
+  }
+
+  .footer-center {
+    flex-direction: column;
+  }
+
+  .subscribe-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-box input,
+  .subscribe-box button {
+    width: 80%;
+  }
+
+  .footer-right img {
+    width: 40px;
+  }
+}

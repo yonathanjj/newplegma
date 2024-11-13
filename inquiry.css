@@ -1,0 +1,456 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+body {
+    font-family: 'Kadwa', serif;
+    background: #000000; /* Desired background color */
+    color: white; /* Text color */
+    margin: 0;
+    padding: 0;
+    cursor: none; /* Hide the default cursor */
+}
+
+/* Navbar Wrapper */
+.navbar {
+    position: fixed;
+    font-family: 'Kadwa', serif;
+    top: 1rem;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
+    z-index: 1000;
+}
+
+/* Logo */
+.logo-link {
+    margin-right: auto; /* Pushes the logo to the left */
+}
+
+.logo-image {
+    width: 5rem;
+    height: 5rem;
+    cursor: pointer;
+}
+
+/* Centered Navigation Links Container */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 1.5rem;
+    background-color: #ffffff;
+    border-radius: 50px; /* Rounded container */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: absolute; /* Positions nav-links independently */
+    left: 50%; /* Centers horizontally */
+    transform: translateX(-50%); /* Centers exactly in the middle */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: #333;
+    padding: 0.5rem 1rem;
+    border-radius: 25px; /* Rounded link background */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-link:hover,
+.nav-link.active {
+    background-color: #FF0000 ; /* Highlight color */
+    color: #ffffff; /* Text color on hover */
+    box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow on hover */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0 1rem;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .logo-image {
+        width: 3rem; /* Reduce logo size in mobile */
+        height: 3rem;
+    }
+
+    .nav-links {
+        gap: 1rem; /* Reduce space between nav links */
+        padding: 0.3rem 1rem; /* Reduce padding of nav-links */
+    }
+
+    .nav-link {
+        font-size: 0.875rem; /* Smaller font size for links */
+        padding: 0.3rem 0.8rem; /* Reduce padding for each link */
+    }
+}
+
+
+/* Cursor Styles */
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+    transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #FF6347;
+}
+
+
+.cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #FFD700;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+    transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+    transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+    width: 50px;
+    height: 50px;
+    border-color: #FF6347;
+}
+
+
+
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  flex-wrap: wrap;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center; /* Center the entire container horizontally */
+  width: 100%;
+}
+
+.left-section,
+.right-section {
+  width: 45%;
+  color: white;
+}
+
+.left-section {
+  padding-left: 2rem;
+  margin-top: 80px;
+}
+
+.contact-info {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+}
+
+.address-info p {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.email-info a {
+  color: rgba(255, 255, 255, 0.7); /* White text color with some transparency */
+  text-decoration: underline; /* Underline the email links */
+}
+
+.email-info a:hover {
+  color: white; /* Make the email text fully white on hover */
+}
+
+.right-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: flex-start; /* Left-align content */
+  padding: 0 2rem; /* Padding for better spacing */
+  text-align: left; /* Ensure all text is left-aligned */
+}
+
+.create-future-header {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start; /* Left-align form elements */
+}
+
+.contact-form label {
+  font-size: 1.8rem;
+  text-align: left; /* Ensure labels are left-aligned */
+}
+
+.contact-form input,
+.contact-form textarea {
+  font-size: 1.6rem;
+  padding: 10px;
+  width: 550px;
+  border: none; /* Remove all borders */
+  border-bottom: 1px solid #fff; /* Only bottom border */
+  background-color: transparent;
+  color: white;
+  margin-bottom: 20px;
+  text-align: left; /* Ensure input text is left-aligned */
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.submit-btn {
+  position: relative;
+  width: 550px;
+  height: 50px;
+  background-color: transparent; /* Transparent background initially */
+  border: 2px solid red; /* Red border */
+  border-radius: 70px;
+  font-size: 1.8rem;
+  color: red; /* Red text color initially */
+  cursor: pointer;
+  overflow: hidden; /* Keep animation within bounds */
+  transition: color 0.3s ease; /* Smooth color transition */
+  z-index: 1; /* Ensures text is on top */
+}
+
+.submit-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0; /* Start with zero width */
+  background-color: red;
+  transition: width 0.4s ease; /* Smooth left-to-right fill animation */
+  z-index: -1; /* Behind the text */
+}
+
+.submit-btn:hover::before,
+.submit-btn:active::before {
+  width: 100%; /* Fill the entire button */
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+  color: white; /* Change text color to white on hover/click */
+}
+
+
+@media screen and (max-width: 768px) {
+  .contact-section {
+    padding: 40px 20px; /* Adjust padding for smaller screens */
+  }
+
+  .contact-container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center; /* Center-align the container */
+  }
+
+  .left-section,
+  .right-section {
+    width: 90%; /* Full width with some padding on the sides */
+    margin-top: 20px; /* Space between sections */
+    padding-left: 0; /* Remove extra padding */
+    text-align: center; /* Center text on small screens */
+  }
+
+  .create-future-header {
+    font-size: 2.5rem; /* Smaller header font size */
+  }
+
+  .contact-form {
+    width: 100%; /* Full width for the form */
+    align-items: center; /* Center form elements */
+  }
+
+  .contact-form input,
+  .contact-form textarea,
+  .submit-btn {
+    width: 100%; /* Full width for inputs and button */
+  }
+
+  .submit-btn {
+    font-size: 1.6rem; /* Adjust font size for button */
+    height: 45px; /* Slightly smaller button height */
+  }
+}
+
+
+footer {
+  width: 100%;
+  padding: 40px 0;
+  color: white;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4rem; /* Add padding for alignment */
+  gap: 2rem; /* Add spacing between sections */
+}
+
+.footer-left, .footer-middle, .footer-center, .footer-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  text-align: left;
+}
+
+.footer-center {
+  text-align: center;
+}
+
+.footer-middle {
+  gap: 10px;
+}
+
+.footer-line {
+  width: 95%;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto 20px;
+}
+
+.footer-left a, .footer-middle a, .footer-center p, .footer-right p {
+  color: white;
+  text-decoration: none;
+  font-size: 1.4rem;
+  margin: 5px 0;
+}
+
+.footer-left a:hover, .footer-middle a:hover, .footer-center p:hover {
+  color: #FF0000;
+}
+
+.subscribe-box {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.subscribe-box input {
+  padding: 10px;
+  font-size: 1.4rem;
+  width: 180px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.subscribe-box input::placeholder {
+  color: #ccc;
+}
+
+.subscribe-box button {
+  padding: 10px 20px;
+  font-size: 1.4rem;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.subscribe-box button:hover {
+  background-color: #ffffff;
+    color: black;
+}
+
+.footer-right img {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-right p {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footer-left, .footer-middle, .footer-center, .footer-right {
+    width: 100%;
+  }
+
+  .footer-center {
+    flex-direction: column;
+  }
+
+  .subscribe-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscribe-box input,
+  .subscribe-box button {
+    width: 80%;
+  }
+
+  .footer-right img {
+    width: 40px;
+  }
+}

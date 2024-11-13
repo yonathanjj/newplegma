@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plegma Website</title>
+  <link href="projects.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="projects.js" defer></script>
+</head>
+<body class="bg-blue-900 text-white font-kadwa">
+
+<!-- Other content -->
+<div class="cursor"></div>
+<div class="cursor-ring"></div>
+
+<!-- Navigation Bar -->
+<header class="navbar">
+  <a href="index.html" class="logo-link">
+    <img src="logo.png" alt="Plegma Logo" class="logo-image">
+  </a>
+  <nav class="nav-links">
+    <a href="About.html" class="nav-link">About</a>
+    <a href="projects.html" class="nav-link">Projects</a>
+    <a href="inquiry.html" class="nav-link">Inquiry</a>
+
+    <button class="go-back-button" onclick="window.history.back()">Go Back</button>
+
+  </nav>
+</header>
+<style>
+  /* Font */
+@import url('https://fonts.googleapis.com/css2?family=Kadwa:wght@400;700&display=swap');
+body {
+  font-family: 'Kadwa', serif;
+  background: #000000; /* Desired background color */
+  color: white; /* Text color */
+  margin: 0;
+  padding: 0;
+  cursor: none; /* Hide the default cursor */
+}
+
+/* Navbar Wrapper */
+.navbar {
+  position: fixed;
+  font-family: 'Kadwa', serif;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  z-index: 1000;
+}
+
+/* Logo */
+.logo-link {
+  margin-right: auto; /* Pushes the logo to the left */
+}
+
+.logo-image {
+  width: 5rem;
+  height: 5rem;
+  cursor: pointer;
+}
+
+
+.go-back-button {
+  background-color: #FF0000; /* Red background */
+  color: white; /* White text */
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.go-back-button:hover {
+  background-color: #ff6347; /* Lighter red on hover */
+  color: white; /* Maintain white text */
+  box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow effect */
+}
+
+/* Centered Navigation Links Container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.5rem 1.5rem;
+  background-color: #ffffff;
+  border-radius: 50px; /* Rounded container */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  position: absolute; /* Positions nav-links independently */
+  left: 50%; /* Centers horizontally */
+  transform: translateX(-50%); /* Centers exactly in the middle */
+}
+
+/* Navigation Link Styles */
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 25px; /* Rounded link background */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover Effect */
+.nav-link:hover,
+.nav-link.active {
+  background-color: #FF0000 ; /* Highlight color */
+  color: #ffffff; /* Text color on hover */
+  box-shadow: 0 4px 8px rgba(240, 84, 84, 0.2); /* Shadow on hover */
+}
+
+/* Responsive Adjustments for Mobile */
+@media (max-width: 768px) {
+  .navbar {
+      padding: 0 1rem;
+      flex-direction: row;
+      align-items: center;
+  }
+
+  .logo-image {
+      width: 3rem; /* Reduce logo size in mobile */
+      height: 3rem;
+  }
+
+  .nav-links {
+      gap: 1rem; /* Reduce space between nav links */
+      padding: 0.3rem 1rem; /* Reduce padding of nav-links */
+  }
+
+  .nav-link {
+      font-size: 0.875rem; /* Smaller font size for links */
+      padding: 0.3rem 0.8rem; /* Reduce padding for each link */
+  }
+}
+
+/* Cursor Styles */
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: #FFD700;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: transform 0.15s ease;
+}
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+  transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+  width: 50px;
+  height: 50px;
+  border-color: #FF6347;
+}
+
+
+
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+}
+
+/* Simple hover effect */
+.cursor.hovered {
+  transform: scale(1.5);
+}
+
+.cursor-ring.hovered {
+  width: 50px;
+  height: 50px;
+  border-color: #FF6347;
+}
+
+
+
+/* Full-Width Video Section */
+.full-width-image-section {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+
+.full-width-video {
+  width: 100%;
+  height: 900px;
+  object-fit: cover;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Optional hover effect for video */
+.full-width-video:hover {
+  transform: scale(1.05);
+}
+
+
+/* Header Style */
+.section-header {
+font-size: 8rem;
+font-weight: bold;
+color: #FF0000;
+text-align: center;
+margin-bottom: 1.5rem;
+}
+
+/* Main Section Styles */
+.main-content {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 10rem 2rem;
+gap: 3rem;
+background-color: #000;
+color: #fff;
+animation: fadeInUp 1.5s ease-out;
+animation-delay: 0.5s;
+}
+
+/* Description Section - Centered Text */
+.description-section {
+text-align: center;
+max-width: 900px;
+margin: 0 auto;
+}
+
+.description-text {
+font-size: 1.2rem;
+line-height: 1.6;
+font-weight: 400;
+color: #ddd;
+}
+
+/* Image Section - Regular images */
+.image-section .image-container {
+display: flex;
+justify-content: space-between;
+gap: 2rem;
+margin-bottom: 2rem;
+}
+
+.project-image {
+width: 30%;
+height: auto;
+border-radius: 15px;
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-image:hover {
+transform: scale(1.05);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Impact Section */
+.impact-section {
+text-align: center;
+max-width: 800px;
+}
+
+.impact-heading {
+font-size: 2rem;
+font-weight: bold;
+color: #FF0000;
+margin-bottom: 1rem;
+transition: color 0.3s ease;
+}
+
+.impact-text {
+font-size: 1.2rem;
+line-height: 1.6;
+font-weight: 400;
+color: #ddd;
+max-width: 800px;
+margin: 0 auto;
+transition: color 0.3s ease;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+/* Main content */
+.main-content {
+  padding: 3rem 1rem;
+}
+
+/* Header font size */
+.section-header {
+  font-size: 4rem; /* Reduce header size */
+}
+
+/* Description text */
+.description-text {
+  font-size: 1rem;
+}
+
+/* Impact section text */
+.impact-heading {
+  font-size: 1.5rem;
+}
+
+.impact-text {
+  font-size: 1rem;
+}
+
+/* Image section layout */
+.image-section .image-container,
+.second-image-section .image-container {
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Project image */
+.project-image {
+  width: 80%; /* Increase the width on mobile */
+}
+
+/* GIF section */
+.gif-section {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.gif-container {
+  max-width: 250px;
+}
+
+.gif-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Full-width image section */
+.full-width-image {
+  height: 600px; /* Adjust height of full-width image on mobile */
+}
+
+.full-width-image-section {
+  margin-top: 2rem;
+}
+}
+
+/* Keyframes for Crazy Animation */
+@keyframes fadeInUp {
+0% {
+  opacity: 0;
+  transform: translateY(50px);
+}
+50% {
+  opacity: 0.5;
+  transform: translateY(30px);
+}
+100% {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+
+
+</style>
+
+
+<main class="main-content">
+  <!-- Section: Description of what we did for the company -->
+  <section class="description-section">
+    <h2 class="section-header">PSYAddis</h2> <!-- Added header -->
+    <p class="description-text">
+      We partnered with [Event Name] to create a dynamic and immersive website that captures the energy and excitement of their house music events. By understanding the vibe of the event and its audience, we designed a user-friendly platform that showcases event details, tickets, and live updates. Our collaboration has amplified their online presence, ensuring fans stay engaged and excited for every event.    </p>
+  </section>
+
+  <!-- Full-Width Video Section -->
+  <section class="full-width-image-section">
+    <div class="video-container">
+      <video class="full-width-video" autoplay loop muted>
+        <source src="psym.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+
+  <!-- Section: Six images with two rows of three images each -->
+  <section class="image-section">
+    <div class="image-container">
+      <img src="psy1.png" alt="Project Image 2" class="project-image">
+      <img src="psy3.png" alt="Project Image 3" class="project-image">
+      <img src="psy4.png" alt="Project Image 4" class="project-image">
+    </div>
+    <div class="image-container">
+      <img src="psy5.png" alt="Project Image 5" class="project-image">
+      <img src="psy6.png" alt="Project Image 6" class="project-image">
+      <img src="psy7.png" alt="Project Image 7" class="project-image">
+    </div>
+  </section>
+
+  <!-- Section: How our work helped the company -->
+  <section class="impact-section">
+    <h2 class="impact-heading">How We Helped the Company</h2>
+    <p class="impact-text">
+      "As trusted partners, we worked alongside PSY to build a sleek and responsive website that not only meets the immediate needs of promoting their house music events but also fosters long-term fan engagement. With seamless navigation and an intuitive design, the website serves as a hub for fans, driving attendance and creating a buzz around the event. Together, we've elevated the online experience, establishing [Event Name] as a must-attend event in the music scene.    </p>
+  </section>
+
+
+</main>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const textElements = document.querySelectorAll(".text-item");
+  const cursor = document.querySelector('.cursor');
+  const cursorRing = document.querySelector('.cursor-ring');
+
+  // Verify that cursor elements are present in the DOM
+  if (!cursor || !cursorRing) {
+      console.error("Cursor elements not found in the DOM.");
+      return;
+  }
+
+  // Cursor tracking movement
+      document.addEventListener('mousemove', e => {
+          cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+          cursorRing.style.transform = `translate(${e.clientX - 15}px, ${e.clientY - 15}px)`;
+      });
+  });
+
+</script>
